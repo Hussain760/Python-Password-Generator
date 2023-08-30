@@ -4,6 +4,8 @@ from random import choice
 while True:
     try:
         length = int(input("Please Enter the Length of the Password:\n"))
+        if length <= 0:
+            raise Exception()
         break
     except:
         print("PLEASE ENTER POSITIVE NUMBERS ONLY")
@@ -11,6 +13,8 @@ while True:
 while True:
     try:
         numberOfPasswords = int(input("How many passwords do you need:\n"))
+        if numberOfPasswords <= 0:
+            raise Exception()
         break
     except:
         print("PLEASE ENTER POSITIVE NUMBERS ONLY")
