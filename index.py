@@ -26,29 +26,30 @@ needSymbols = input("Do You Need Symbols? [Y/Enter/N]\n").upper()
 
 
 def generator(integer):
-    listOfRandomChar = [
-        utils.UpperCase(),
-        utils.LowerCase(),
-        utils.Numbers(),
-        utils.Symbols(),
-    ]
-
-    if needUppercase == "N":
-        listOfRandomChar[0] = False
-
-    if needLowercase == "N":
-        listOfRandomChar[1] = False
-
-    if needNumbers == "N":
-        listOfRandomChar[2] = False
-
-    if needSymbols == "N":
-        listOfRandomChar[3] = False
-
-    filterList = list(filter(lambda items: not (items == False), listOfRandomChar))
-
     listOfPassword = []
+
     for x in range(integer):
+        listOfRandomChar = [
+            utils.UpperCase(),
+            utils.LowerCase(),
+            utils.Numbers(),
+            utils.Symbols(),
+        ]
+
+        if needUppercase == "N":
+            listOfRandomChar[0] = False
+
+        if needLowercase == "N":
+            listOfRandomChar[1] = False
+
+        if needNumbers == "N":
+            listOfRandomChar[2] = False
+
+        if needSymbols == "N":
+            listOfRandomChar[3] = False
+
+        filterList = list(filter(lambda items: not (items == False), listOfRandomChar))
+
         listOfPassword.append(choice(filterList))
 
     password = "".join(listOfPassword)
