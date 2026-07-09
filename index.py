@@ -19,38 +19,23 @@ while True:
     except:
         print("PLEASE ENTER POSITIVE NUMBERS ONLY")
 
-needUppercase = input("Do You Need Capital Letters? [Y/Enter/N]\n").upper()
-needLowercase = input("Do You Need Lower Letters? [Y/Enter/N]\n").upper()
-needNumbers = input("Do You Need Numbers? [Y/Enter/N]\n").upper()
-needSymbols = input("Do You Need Symbols? [Y/Enter/N]\n").upper()
-
+needUppercase = input("Do You Need Capital Letters? [Y/Enter/N]\n").lower()
+needLowercase = input("Do You Need Lower Letters? [Y/Enter/N]\n").lower()
+needNumbers = input("Do You Need Numbers? [Y/Enter/N]\n").lower()
+needSymbols = input("Do You Need Symbols? [Y/Enter/N]\n").lower()
 
 def generator(integer):
     listOfPassword = []
+    listOfRandomChar = [
+            False if needUppercase == "n" else utils.UpperCase,
+            False if needLowercase == "n" else utils.LowerCase,
+            False if needNumbers == "n" else utils.Numbers,
+            False if needSymbols == "n" else utils.Symbols,
+    ]
+    filterList = list(filter(lambda items: not (items == False), listOfRandomChar))
 
     for x in range(integer):
-        listOfRandomChar = [
-            utils.UpperCase(),
-            utils.LowerCase(),
-            utils.Numbers(),
-            utils.Symbols(),
-        ]
-
-        if needUppercase == "N":
-            listOfRandomChar[0] = False
-
-        if needLowercase == "N":
-            listOfRandomChar[1] = False
-
-        if needNumbers == "N":
-            listOfRandomChar[2] = False
-
-        if needSymbols == "N":
-            listOfRandomChar[3] = False
-
-        filterList = list(filter(lambda items: not (items == False), listOfRandomChar))
-
-        listOfPassword.append(choice(filterList))
+        listOfPassword.append(choice(filterList)())   # choice(filterList)() runs the functions (utils.UpperCase, utils.LowerCase, etc.)
 
     password = "".join(listOfPassword)
 
