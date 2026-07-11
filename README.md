@@ -4,13 +4,9 @@ This repository contains a Python-based password generator that allows users to 
 
 ## Files
 
-### `utils.py`
-
-The `utils.py` file contains functions to generate random characters for passwords based on ASCII values. It includes functions for uppercase letters, lowercase letters, numbers, and symbols.
-
 ### `index.py`
 
-The `index.py` file is the main script for the password generator. It prompts users to input the desired length and number of passwords, as well as whether they need uppercase letters, lowercase letters, numbers, or symbols in their passwords. It then generates passwords accordingly using functions from `utils.py`.
+The `index.py` file is the main script for the password generator. It prompts users to input the desired length and number of passwords, as well as whether they need uppercase letters, lowercase letters, numbers, or symbols in their passwords.
 
 ## Usage
 
@@ -22,7 +18,6 @@ The `index.py` file is the main script for the password generator. It prompts us
 
 2. **Customization:**
    - Modify `index.py` to change the user prompts or logic for password generation.
-   - Update `utils.py` to alter the character sets or methods used for generating specific types of characters.
 
 ## How to Run
 
