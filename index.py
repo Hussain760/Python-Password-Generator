@@ -35,8 +35,8 @@ listOfRandomChar = [
 
 filterList = ''.join([item for item in listOfRandomChar if item is not False])
 
-def generator(integer):
-    return ''.join(choices(filterList, k=integer))
+def generator(lengthOfPassword):
+    return ''.join(choices(filterList, k=lengthOfPassword))
 
 password = [f"{x + 1}: {generator(length)}\n" for x in range(numberOfPasswords)]
 print("".join(password))
